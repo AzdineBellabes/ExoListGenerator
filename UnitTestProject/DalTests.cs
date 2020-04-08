@@ -69,6 +69,7 @@ namespace UnitTestProject
                 Assert.AreEqual(exos, training[0].ListeExo);
                 Assert.AreEqual("Carrousel", training[0].ListeExo[0].Nom);
                 Assert.AreEqual(testimage, training[0].ListeExo[0].Image);
+                Assert.AreEqual("3 Shoots in a row", training[0].ListeExo[1].Nom);
             }
         }
     }
