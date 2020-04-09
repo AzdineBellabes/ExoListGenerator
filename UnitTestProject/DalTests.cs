@@ -72,5 +72,91 @@ namespace UnitTestProject
                 Assert.AreEqual("3 Shoots in a row", training[0].ListeExo[1].Nom);
             }
         }
+
+        [TestMethod]
+        public void ModifierExo_CreationEtModification()
+        {
+            using (IDal dal = new Dal())
+            {
+                dal.CreerExo("Carrousel", "Toute les balles en A", testimage, true, true, false, false, true, ladate);
+                dal.CreerExo("3 Shoots in a row", "A demarre sa course en 1 recoit une passe de B : Shoot", testimage, true, true, false, false, true, ladate);
+                List<Exo> exos = dal.ObtientTousLesExos();
+
+                int id = exos.First(r => r.Nom == "3 Shoots in a row").ID;
+
+                dal.ModifierExo(id, null, null, null, false, false, false, false, false);
+
+                exos = dal.ObtientTousLesExos();
+
+                Assert.IsNotNull(exos);
+                Assert.AreEqual(2, exos.Count);
+                Assert.AreEqual(false, exos[1].TypePass);
+                Assert.AreEqual(false, exos[1].TypeShoot);
+            }
+        }
+
+        [TestMethod]
+        public void ModifierEntrainement_CreationEtModificationAvecChangementDexo()
+        {
+            using(IDal dal = new Dal())
+            {
+                DateTime newdate = ladate;
+                newdate.AddDays(7);
+                dal.CreerExo("Carrousel", "Toute les balles en A", testimage, true, true, false, false, true, ladate);
+                dal.CreerExo("3 Shoots in a row", "A demarre sa course en 1 recoit une passe de B : Shoot", testimage, true, true, false, false, true, ladate);
+                List<Exo> exos = dal.ObtientTousLesExos();
+
+                dal.CreerEntrainement("Entrainement du jour", ladate, ladate, exos);
+                List<Entrainement> training = dal.ObtientTousLesEntrainements();
+
+                int id = training.First(r => r.Description == "Entrainement du jour").ID;
+                dal.ModifierEntrainement(id, "Entrainement de la semaine", newdate, null);
+
+                Assert.IsNotNull(training);
+                Assert.AreEqual(1, training.Count);
+                Assert.AreEqual(newdate, training[0].ExecutionDate);
+                Assert.AreEqual("Entrainement de la semaine", training[0].Description);
+            }
+        }
+
+        [TestMethod]
+        public void AjouterUnExoALEntrainement()
+        {
+            using (IDal dal = new Dal())
+            {
+                DateTime newdate = ladate;
+                dal.CreerExo("Carrousel", "Toute les balles en A", testimage, true, true, false, false, true, ladate);
+                dal.CreerExo("3 Shoots in a row", "A demarre sa course en 1 recoit une passe de B : Shoot", testimage, true, true, false, false, true, ladate);
+                List<Exo> exos = dal.ObtientTousLesExos();
+
+                dal.CreerEntrainement("Entrainement du jour", ladate, ladate, exos);
+                List<Entrainement> training = dal.ObtientTousLesEntrainements();
+
+                dal.CreerExo("Exo En Plus", "voila un exo en plus", testimage, true, false, true, false, true, ladate);
+                Assert.AreEqual(2, training[0].ListeExo.Count());
+                dal.AjouterExoAEntrainement(training[0], 2);
+                Assert.AreEqual(3, training[0].ListeExo.Count());
+            }
+        }
+
+        [TestMethod]
+        public void SupprimerUnExoALEntrainement()
+        {
+            using (IDal dal = new Dal())
+            {
+                DateTime newdate = ladate;
+                dal.CreerExo("Carrousel", "Toute les balles en A", testimage, true, true, false, false, true, ladate);
+                dal.CreerExo("3 Shoots in a row", "A demarre sa course en 1 recoit une passe de B : Shoot", testimage, true, true, false, false, true, ladate);
+                dal.CreerExo("Exo En Plus", "voila un exo en plus", testimage, true, false, true, false, true, ladate);
+                List<Exo> exos = dal.ObtientTousLesExos();
+
+                dal.CreerEntrainement("Entrainement du jour", ladate, ladate, exos);
+                List<Entrainement> training = dal.ObtientTousLesEntrainements();
+                Assert.AreEqual(3, training[0].ListeExo.Count());
+                dal.SupprimerExoAEntrainement(training[0], 1);
+                Assert.AreEqual(2, training[0].ListeExo.Count());
+                Assert.AreEqual("Exo En Plus", training[0].ListeExo[1].Nom);
+            }
+        }
     }
 }
