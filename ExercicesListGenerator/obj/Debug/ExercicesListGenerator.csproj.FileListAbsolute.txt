@@ -149,3 +149,10 @@ C:\Users\R393754\source\repos\ExoListGenerator\ExercicesListGenerator\obj\Debug\
 C:\Users\R393754\source\repos\ExoListGenerator\ExercicesListGenerator\obj\Debug\ExercicesListGenerator.dll
 C:\Users\R393754\source\repos\ExoListGenerator\ExercicesListGenerator\obj\Debug\ExercicesListGenerator.pdb
 C:\Users\R393754\source\repos\ExoListGenerator\ExercicesListGenerator\obj\Debug\ExercicesListGenerator.csprojAssemblyReference.cache
+C:\Users\R393754\source\repos\ExoListGenerator\ExercicesListGenerator\bin\Antlr3.Runtime.dll
+C:\Users\R393754\source\repos\ExoListGenerator\ExercicesListGenerator\bin\Newtonsoft.Json.dll
+C:\Users\R393754\source\repos\ExoListGenerator\ExercicesListGenerator\bin\System.Web.Optimization.dll
+C:\Users\R393754\source\repos\ExoListGenerator\ExercicesListGenerator\bin\WebGrease.dll
+C:\Users\R393754\source\repos\ExoListGenerator\ExercicesListGenerator\bin\Antlr3.Runtime.pdb
+C:\Users\R393754\source\repos\ExoListGenerator\ExercicesListGenerator\bin\Newtonsoft.Json.xml
+C:\Users\R393754\source\repos\ExoListGenerator\ExercicesListGenerator\bin\System.Web.Optimization.xml
