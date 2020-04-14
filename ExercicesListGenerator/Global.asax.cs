@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using System.Data.Entity;
+using ExercicesListGenerator.Models;
 
 namespace ExercicesListGenerator
 {
@@ -13,6 +15,10 @@ namespace ExercicesListGenerator
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            IDatabaseInitializer<BddContext> init = new InitExos();
+            Database.SetInitializer(init);
+            init.InitializeDatabase(new BddContext());
         }
     }
 }

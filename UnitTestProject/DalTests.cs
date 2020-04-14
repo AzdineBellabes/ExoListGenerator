@@ -36,7 +36,7 @@ namespace UnitTestProject
                 //ImageConverter Class convert Image object to Byte array.
                 byte[] bytes = (byte[])(new ImageConverter()).ConvertTo(img, typeof(byte[]));*/
 
-                dal.CreerExo("Carrousel", "Toute les balles en A", testimage, true, true, false, false, true, ladate);
+                dal.CreerExo("Carrousel", "Toute les balles en A", testimage, true, true, false, false, true, ladate, "Auteur");
                 List<Exo> exos = dal.ObtientTousLesExos();
 
                 Assert.IsNotNull(exos);
@@ -51,8 +51,8 @@ namespace UnitTestProject
         {
             using (IDal dal = new Dal())
             {
-                dal.CreerExo("Carrousel", "Toute les balles en A", testimage, true, true, false, false, true, ladate);
-                dal.CreerExo("3 Shoots in a row", "A demarre sa course en 1 recoit une passe de B : Shoot", testimage, true, true, false, false, true, ladate);
+                dal.CreerExo("Carrousel", "Toute les balles en A", testimage, true, true, false, false, true, ladate, "Auteur");
+                dal.CreerExo("3 Shoots in a row", "A demarre sa course en 1 recoit une passe de B : Shoot", testimage, true, true, false, false, true, ladate, "Auteur");
 
                 List<Exo> exos = dal.ObtientTousLesExos();
                 dal.CreerEntrainement("Entrainement du jour", ladate, ladate, exos);
@@ -78,8 +78,8 @@ namespace UnitTestProject
         {
             using (IDal dal = new Dal())
             {
-                dal.CreerExo("Carrousel", "Toute les balles en A", testimage, true, true, false, false, true, ladate);
-                dal.CreerExo("3 Shoots in a row", "A demarre sa course en 1 recoit une passe de B : Shoot", testimage, true, true, false, false, true, ladate);
+                dal.CreerExo("Carrousel", "Toute les balles en A", testimage, true, true, false, false, true, ladate, "Auteur");
+                dal.CreerExo("3 Shoots in a row", "A demarre sa course en 1 recoit une passe de B : Shoot", testimage, true, true, false, false, true, ladate, "Auteur");
                 List<Exo> exos = dal.ObtientTousLesExos();
 
                 int id = exos.First(r => r.Nom == "3 Shoots in a row").ID;
@@ -102,8 +102,8 @@ namespace UnitTestProject
             {
                 DateTime newdate = ladate;
                 newdate.AddDays(7);
-                dal.CreerExo("Carrousel", "Toute les balles en A", testimage, true, true, false, false, true, ladate);
-                dal.CreerExo("3 Shoots in a row", "A demarre sa course en 1 recoit une passe de B : Shoot", testimage, true, true, false, false, true, ladate);
+                dal.CreerExo("Carrousel", "Toute les balles en A", testimage, true, true, false, false, true, ladate, "Auteur");
+                dal.CreerExo("3 Shoots in a row", "A demarre sa course en 1 recoit une passe de B : Shoot", testimage, true, true, false, false, true, ladate, "Auteur");
                 List<Exo> exos = dal.ObtientTousLesExos();
 
                 dal.CreerEntrainement("Entrainement du jour", ladate, ladate, exos);
@@ -125,14 +125,14 @@ namespace UnitTestProject
             using (IDal dal = new Dal())
             {
                 DateTime newdate = ladate;
-                dal.CreerExo("Carrousel", "Toute les balles en A", testimage, true, true, false, false, true, ladate);
-                dal.CreerExo("3 Shoots in a row", "A demarre sa course en 1 recoit une passe de B : Shoot", testimage, true, true, false, false, true, ladate);
+                dal.CreerExo("Carrousel", "Toute les balles en A", testimage, true, true, false, false, true, ladate, "Auteur");
+                dal.CreerExo("3 Shoots in a row", "A demarre sa course en 1 recoit une passe de B : Shoot", testimage, true, true, false, false, true, ladate, "Auteur");
                 List<Exo> exos = dal.ObtientTousLesExos();
 
                 dal.CreerEntrainement("Entrainement du jour", ladate, ladate, exos);
                 List<Entrainement> training = dal.ObtientTousLesEntrainements();
 
-                dal.CreerExo("Exo En Plus", "voila un exo en plus", testimage, true, false, true, false, true, ladate);
+                dal.CreerExo("Exo En Plus", "voila un exo en plus", testimage, true, false, true, false, true, ladate, "Auteur");
                 Assert.AreEqual(2, training[0].ListeExo.Count());
                 dal.AjouterExoAEntrainement(training[0], 2);
                 Assert.AreEqual(3, training[0].ListeExo.Count());
@@ -145,9 +145,9 @@ namespace UnitTestProject
             using (IDal dal = new Dal())
             {
                 DateTime newdate = ladate;
-                dal.CreerExo("Carrousel", "Toute les balles en A", testimage, true, true, false, false, true, ladate);
-                dal.CreerExo("3 Shoots in a row", "A demarre sa course en 1 recoit une passe de B : Shoot", testimage, true, true, false, false, true, ladate);
-                dal.CreerExo("Exo En Plus", "voila un exo en plus", testimage, true, false, true, false, true, ladate);
+                dal.CreerExo("Carrousel", "Toute les balles en A", testimage, true, true, false, false, true, ladate, "Auteur");
+                dal.CreerExo("3 Shoots in a row", "A demarre sa course en 1 recoit une passe de B : Shoot", testimage, true, true, false, false, true, ladate, "Auteur");
+                dal.CreerExo("Exo En Plus", "voila un exo en plus", testimage, true, false, true, false, true, ladate, "Auteur");
                 List<Exo> exos = dal.ObtientTousLesExos();
 
                 dal.CreerEntrainement("Entrainement du jour", ladate, ladate, exos);

@@ -29,7 +29,7 @@ namespace ExercicesListGenerator.Models
         }
 
         public void CreerExo(string nom, string description, Byte[] image, bool typepass, bool typeshoot, bool typeplaymaking,
-            bool typeathletic, bool typegoalie, DateTime creationdate)
+            bool typeathletic, bool typegoalie, DateTime creationdate, string author)
         {
             bdd.Exos.Add(new Exo
             {
@@ -41,7 +41,8 @@ namespace ExercicesListGenerator.Models
                 TypePlayMaking = typeplaymaking,
                 TypeAthletic = typeathletic,
                 TypeGoalie = typegoalie,
-                Date = creationdate
+                Date = creationdate,
+                Author = author
             });
             bdd.SaveChanges();
         }
