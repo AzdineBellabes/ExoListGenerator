@@ -15,7 +15,7 @@ namespace ExercicesListGenerator.Models
         [Required]
         public virtual string Nom { get; set; }
         public virtual string Description { get; set; }
-        public virtual Byte[] Image { get; set; }
+        public virtual byte[] Image { get; set; }
         public virtual DateTime? Date { get; set; }
         [Display(Name = "Exercice de passes")]
         public virtual bool TypePass { get; set; }

@@ -28,7 +28,7 @@ namespace ExercicesListGenerator.Models
             bdd.Dispose();
         }
 
-        public void CreerExo(string nom, string description, Byte[] image, bool typepass, bool typeshoot, bool typeplaymaking,
+        public void CreerExo(string nom, string description, byte[] image, bool typepass, bool typeshoot, bool typeplaymaking,
             bool typeathletic, bool typegoalie, DateTime creationdate, string author)
         {
             bdd.Exos.Add(new Exo
@@ -59,7 +59,7 @@ namespace ExercicesListGenerator.Models
             bdd.SaveChanges();
         }
 
-        public void ModifierExo(int id, string nom, string description, Byte[] image, bool typepass, bool typeshoot, bool typeplaymaking, bool typeathletic, bool typegoalie)
+        public void ModifierExo(int id, string nom, string description, byte[] image, bool typepass, bool typeshoot, bool typeplaymaking, bool typeathletic, bool typegoalie)
         {
             Exo exoTrouve = bdd.Exos.FirstOrDefault(exo => exo.ID == id);
             if (exoTrouve != null)

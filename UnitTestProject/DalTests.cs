@@ -4,6 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Moq;
 
 using System.Data.Entity;
 using ExercicesListGenerator.Models;
@@ -13,7 +14,8 @@ namespace UnitTestProject
     [TestClass]
     public class DalTests
     {
-        Byte[] testimage;
+
+        byte[] testimage = { 0, 16, 104, 213 }; //some values different of null
         DateTime ladate = DateTime.Now;
 
         [TestInitialize]

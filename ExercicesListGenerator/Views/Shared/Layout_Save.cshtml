@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 15%;
+            background-color: #f1f1f1;
+            position: fixed;
+            height: 100%;
+            overflow: auto;
+        }
+
+        li a {
+            display: block;
+            color: #000;
+            padding: 8px 16px;
+            text-decoration: none;
+        }
+
+            li a.active {
+                background-color: #4CAF50;
+                color: white;
+            }
+
+            li a:hover:not(.active) {
+                background-color: #555;
+                color: white;
+            }
+    </style>
+</head>
+<body>
+
+    <ul>
+        <li><a class="active" href="#Section1">Home</a></li>
+        <li><a href="#Section2">Liste des Exercices</a></li>
+        <li><a href="#Section3">Entrainements</a></li>
+        <li><a href="#Section4">A Propos</a></li>
+    </ul>
+
+    <div class="container body-content" style="margin-left:15%;">
+        @RenderBody()
+        <footer style="margin-left:15%">
+            <p>&copy; @DateTime.Now.Year - Azdine Bellabes</p>
+        </footer>
+    </div>
+</body>
+</html>

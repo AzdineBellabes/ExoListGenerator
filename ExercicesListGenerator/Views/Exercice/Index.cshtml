@@ -1,0 +1,50 @@
+﻿@model List<ExercicesListGenerator.Models.Exo>
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" type="text/css" href="~/Content/Formulaire.css">
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        <h1>Liste des exercices</h1>
+    </div>
+    <table>
+        <tr>
+            <th>Nom</th>
+            <th>Description</th>
+            <th>Creation</th>
+            <th>Auteur</th>
+            <th>Image</th>
+            <th>Modification</th>
+        </tr>
+        @{
+            foreach (var exo in @ViewBag.listeDesExos)
+            {
+                <tr>
+                    <td>@exo.Nom</td>
+                    <td>@exo.Description</td>
+                    <td>@exo.Date</td>
+                    <td>@exo.Author</td>
+                    @if(@exo.Image == null)
+                    {
+                        <td>Non Present</td>
+                    }
+                    else
+                    {
+                        <td>Present</td>
+                    }
+                    <td>@Html.ActionLink("Exercice", "Modifier", "Exercice", new { exo_id = exo.ID }, null)</td>
+                </tr>
+            }
+        }
+    </table>
+</body>
+</html>
