@@ -44,7 +44,6 @@ namespace ExercicesListGenerator.Controllers
         [HttpPost]
         public ActionResult Modifier(int? exo_id, string nom, string description, bool typepass, bool typeshoot, bool typeplaymaking, bool typeathletic, bool typegoalie)
         {
-            byte[] image = null;
             if (exo_id.HasValue)
             {
                 using (IDal dal = new Dal())
@@ -53,7 +52,6 @@ namespace ExercicesListGenerator.Controllers
                         exo_id.Value,
                         nom,
                         description,
-                        image,
                         typepass,
                         typeshoot,
                         typeplaymaking,
@@ -65,6 +63,35 @@ namespace ExercicesListGenerator.Controllers
             else
             {
                 return View("Error");
+            }
+        }
+
+        [HttpPost]
+        public ActionResult FileUpload(int? ID, HttpPostedFileBase file)
+        {
+            using (IDal dal = new Dal())
+            {
+                if (file != null)
+                {
+
+                    string pic = ID.ToString() + "_" + System.IO.Path.GetFileName(file.FileName);
+                    string path = System.IO.Path.Combine(
+                                           Server.MapPath("~/Images"), pic);
+                    // file is uploaded
+                    file.SaveAs(path);
+
+                    // save the image path path to the database or you can send image 
+                    // directly to database
+                    // in-case if you want to store byte[] ie. for DB
+                    using (MemoryStream ms = new MemoryStream())
+                    {
+                        file.InputStream.CopyTo(ms);
+                        byte[] array = ms.GetBuffer();
+                        dal.ModifierImageDansExo(ID.Value, array);
+                    }
+                }
+                // after successfully uploading redirect the user
+                return RedirectToAction("Index");
             }
         }
     }

@@ -9,7 +9,8 @@ namespace ExercicesListGenerator.Models
     public interface IDal : IDisposable
     {
         void CreerExo(string nom, string description, byte[] image, bool typepass, bool typeshoot, bool typeplaymaking, bool typeathletic, bool typegoalie, DateTime creationdate, string author);
-        void ModifierExo(int id, string nom, string description, byte[] image, bool typepass, bool typeshoot, bool typeplaymaking, bool typeathletic, bool typegoalie);
+        void ModifierExo(int id, string nom, string description, bool typepass, bool typeshoot, bool typeplaymaking, bool typeathletic, bool typegoalie);
+        void ModifierImageDansExo(int id, byte[] image);
         List<Exo> ObtientTousLesExos();
         void CreerEntrainement(string description, DateTime creationdate, DateTime executiondate, List<Exo> listeexos);
         void ModifierEntrainement(int id, string description, DateTime executiondate, List<Exo> listeexos);

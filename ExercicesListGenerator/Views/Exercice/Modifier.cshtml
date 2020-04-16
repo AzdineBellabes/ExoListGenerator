@@ -50,5 +50,15 @@
             <input type="submit" value="Envoyer" />
         </div>
     }
+
+    @using (Html.BeginForm("FileUpload", "Exercice", FormMethod.Post,
+                    new { enctype = "multipart/form-data" }))
+    {
+        @*<input type="text" name="exo_id" value="123" />*@
+        @Html.TextBoxFor(model => model.ID, new { style = "display: none;" })
+        <label for="file">Upload Image:</label>
+        <input type="file" name="file" id="file" style="width: 100%;" />
+        <input type="submit" value="Upload" class="submit" />
+    }
 </body>
 </html>

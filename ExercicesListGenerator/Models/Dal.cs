@@ -59,7 +59,7 @@ namespace ExercicesListGenerator.Models
             bdd.SaveChanges();
         }
 
-        public void ModifierExo(int id, string nom, string description, byte[] image, bool typepass, bool typeshoot, bool typeplaymaking, bool typeathletic, bool typegoalie)
+        public void ModifierExo(int id, string nom, string description, bool typepass, bool typeshoot, bool typeplaymaking, bool typeathletic, bool typegoalie)
         {
             Exo exoTrouve = bdd.Exos.FirstOrDefault(exo => exo.ID == id);
             if (exoTrouve != null)
@@ -72,10 +72,6 @@ namespace ExercicesListGenerator.Models
                 {
                     exoTrouve.Description = description;
                 }
-                if (image != null)
-                {
-                    exoTrouve.Image = image;
-                }
                 exoTrouve.TypePass = typepass;
                 exoTrouve.TypeShoot = typeshoot;
                 exoTrouve.TypePlayMaking = typeplaymaking;
@@ -84,6 +80,18 @@ namespace ExercicesListGenerator.Models
             }
             bdd.SaveChanges();
         }
+
+        public void ModifierImageDansExo(int id, byte[] image)
+        {
+            Exo exoTrouve = bdd.Exos.FirstOrDefault(exo => exo.ID == id);
+                if (exoTrouve != null)
+                    if (image != null)
+                {
+                    exoTrouve.Image = image;
+                }
+            bdd.SaveChanges();
+        }
+
         public void ModifierEntrainement(int id, string description, DateTime executiondate, List<Exo> listeexos)
         {
             Entrainement trainingtrouve = bdd.Entrainements.FirstOrDefault(training => training.ID == id);
