@@ -12,7 +12,7 @@ namespace ExercicesListGenerator.Models
         {
             context.Exos.Add(new Exo
             {
-                ID = 0,
+                //ID = 0,
                 Nom = "Mon exo n°1",
                 Description = "une description rapide",
                 Author = "Azdine",
@@ -26,7 +26,7 @@ namespace ExercicesListGenerator.Models
 
             context.Exos.Add(new Exo
             {
-                ID = 1,
+                //ID = 1,
                 Nom = "Mon exo n°2",
                 Description = "deuze description rapide",
                 Author = "Azdine",
@@ -40,7 +40,7 @@ namespace ExercicesListGenerator.Models
 
             context.Exos.Add(new Exo
             {
-                ID = 2,
+                //ID = 2,
                 Nom = "Mon exo n°3",
                 Description = "trouaze description rapide",
                 Author = "Azdine",
@@ -54,7 +54,7 @@ namespace ExercicesListGenerator.Models
 
             context.Exos.Add(new Exo
             {
-                ID = 3,
+                //ID = 3,
                 Nom = "Mon exo n°4",
                 Description = "quatrez description rapide",
                 Author = "Azdine",

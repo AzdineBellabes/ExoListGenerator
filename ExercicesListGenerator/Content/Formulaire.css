@@ -30,7 +30,7 @@ input[type=submit] {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    float: right;
+    float: inherit;
 }
 
     /* When moving the mouse over the submit button, add a darker green color */
@@ -69,4 +69,22 @@ tr:nth-child(even) {
 th {
     background-color: darkred;
     color: white;
+}
+
+div.polaroid {
+    width:auto;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+div.polaroidContainer {
+    text-align: center;
+    padding: 10px 20px;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 25%;
 }

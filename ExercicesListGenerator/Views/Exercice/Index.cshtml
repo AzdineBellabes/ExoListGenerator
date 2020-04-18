@@ -33,7 +33,7 @@
                     <td>@exo.Description</td>
                     <td>@exo.Date</td>
                     <td>@exo.Author</td>
-                    @if(@exo.Image == null)
+                    @if (@exo.Image == null)
                     {
                         <td>Non Present</td>
                     }
@@ -41,10 +41,11 @@
                     {
                         <td>Present</td>
                     }
-                    <td>@Html.ActionLink("Exercice", "Modifier", "Exercice", new { exo_id = exo.ID }, null)</td>
+                    <td>@Html.ActionLink("Modification", "Modifier", "Exercice", new { exo_id = exo.ID }, null)</td>
                 </tr>
             }
         }
     </table>
+    @Html.ActionLink("Ajouter un nouvel Exercice", "Creer", "Exercice", null, null)
 </body>
 </html>

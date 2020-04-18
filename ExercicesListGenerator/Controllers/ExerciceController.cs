@@ -57,7 +57,10 @@ namespace ExercicesListGenerator.Controllers
                         typeplaymaking,
                         typeathletic,
                         typegoalie);
-                    return RedirectToAction("Index");
+                    Exo exercice = dal.ObtientTousLesExos().FirstOrDefault(e => e.ID == exo_id.Value);
+                    if (exercice == null)
+                        return View("Error");
+                    return RedirectToAction("index");
                 }
             }
             else
@@ -78,7 +81,7 @@ namespace ExercicesListGenerator.Controllers
                     string path = System.IO.Path.Combine(
                                            Server.MapPath("~/Images"), pic);
                     // file is uploaded
-                    file.SaveAs(path);
+                    //file.SaveAs(path);
 
                     // save the image path path to the database or you can send image 
                     // directly to database
@@ -89,8 +92,41 @@ namespace ExercicesListGenerator.Controllers
                         byte[] array = ms.GetBuffer();
                         dal.ModifierImageDansExo(ID.Value, array);
                     }
+
                 }
-                // after successfully uploading redirect the user
+                Exo exercice = dal.ObtientTousLesExos().FirstOrDefault(e => e.ID == ID.Value);
+                if (exercice == null)
+                    return View("Error");
+                return RedirectToAction("Modifier", "Exercice",  new { exo_id = exercice.ID });
+            }
+        }
+
+        public ActionResult Creer()
+        {
+            using (IDal dal = new Dal())
+            {
+                List<Exo> listeDesExos = dal.ObtientTousLesExos();
+                ViewBag.ListeDesExos = listeDesExos;
+                return View();
+            }
+        }
+
+        [HttpPost]
+        public ActionResult Creer(Exo NouvelExo)
+        {
+            using (IDal dal = new Dal())
+            {
+                dal.CreerExo(
+                    NouvelExo.Nom,
+                    NouvelExo.Description,
+                    null,
+                    NouvelExo.TypePass,
+                    NouvelExo.TypeShoot,
+                    NouvelExo.TypePlayMaking,
+                    NouvelExo.TypeAthletic,
+                    NouvelExo.TypeGoalie,
+                    DateTime.Now,
+                    NouvelExo.Author);
                 return RedirectToAction("Index");
             }
         }

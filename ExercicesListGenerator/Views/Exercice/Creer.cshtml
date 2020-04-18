@@ -1,0 +1,47 @@
+﻿@model ExercicesListGenerator.Models.Exo
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" type="text/css" href="~/Content/Formulaire.css">
+    <title>Creation d'Entrainement</title>
+</head>
+<body>
+    <h1>Creer un exercice</h1>
+    @using (Html.BeginForm("Creer", "Exercice", FormMethod.Post))
+    {
+<div class="container">
+    @Html.LabelFor(model => model.Nom) :
+    @Html.TextBoxFor(model => model.Nom)
+    <br>
+    @Html.LabelFor(model => model.Description) :
+    @Html.TextBoxFor(model => model.Description)
+    <br>
+    @Html.LabelFor(model => model.Author) :
+    @Html.TextBoxFor(model => model.Author)
+    <br>
+    @Html.LabelFor(model => model.TypePass)
+    @Html.CheckBoxFor(model => model.TypePass)
+    <br>
+    @Html.LabelFor(model => model.TypeShoot)
+    @Html.CheckBoxFor(model => model.TypeShoot)
+    <br>
+    @Html.LabelFor(model => model.TypePlayMaking)
+    @Html.CheckBoxFor(model => model.TypePlayMaking)
+    <br>
+    @Html.LabelFor(model => model.TypeAthletic)
+    @Html.CheckBoxFor(model => model.TypeAthletic)
+    <br>
+    @Html.LabelFor(model => model.TypeGoalie)
+    @Html.CheckBoxFor(model => model.TypeGoalie)
+    <br>
+    <input type="submit" value="Envoyer" />
+</div>
+    }
+</body>
+</html>

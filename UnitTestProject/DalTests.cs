@@ -86,7 +86,7 @@ namespace UnitTestProject
 
                 int id = exos.First(r => r.Nom == "3 Shoots in a row").ID;
 
-                dal.ModifierExo(id, null, null, null, false, false, false, false, false);
+                dal.ModifierExo(id, null, null, false, false, false, false, false);
 
                 exos = dal.ObtientTousLesExos();
 
