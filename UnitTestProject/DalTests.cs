@@ -4,6 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Moq;
 
 using System.Data.Entity;
 using ExercicesListGenerator.Models;
@@ -13,7 +14,8 @@ namespace UnitTestProject
     [TestClass]
     public class DalTests
     {
-        Byte[] testimage;
+
+        byte[] testimage = { 0, 16, 104, 213 }; //some values different of null
         DateTime ladate = DateTime.Now;
 
         [TestInitialize]
@@ -84,7 +86,7 @@ namespace UnitTestProject
 
                 int id = exos.First(r => r.Nom == "3 Shoots in a row").ID;
 
-                dal.ModifierExo(id, null, null, null, false, false, false, false, false);
+                dal.ModifierExo(id, null, null, false, false, false, false, false);
 
                 exos = dal.ObtientTousLesExos();
 

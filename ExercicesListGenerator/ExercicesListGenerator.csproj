@@ -138,6 +138,7 @@
     <Content Include="Views\Exercice\Index.cshtml" />
     <Content Include="Views\Exercice\Modifier.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Exercice\Creer.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
