@@ -109,7 +109,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Formulaire.css" />
+    <Content Include="Content\Recherche.css" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\Filter.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -139,6 +141,7 @@
     <Content Include="Views\Exercice\Modifier.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Exercice\Creer.cshtml" />
+    <Content Include="Views\Exercice\Rechercher.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -148,7 +151,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Scripts\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

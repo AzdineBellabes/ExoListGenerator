@@ -130,5 +130,17 @@ namespace ExercicesListGenerator.Controllers
                 return RedirectToAction("Index");
             }
         }
+
+        public ActionResult Rechercher()
+        {
+            using (IDal dal = new Dal())  
+            {
+                List<Exo> listeDesExos = dal.ObtientTousLesExos();
+                var listeFiltre = from s in listeDesExos
+                                  select s;
+                ViewBag.ListeDesExos = listeDesExos;
+                return View(listeDesExos);
+            }
+        }
     }
 }
