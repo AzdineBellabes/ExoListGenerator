@@ -13,57 +13,57 @@ namespace ExercicesListGenerator.Models
             context.Exos.Add(new Exo
             {
                 //ID = 0,
-                Nom = "Mon exo n°1",
-                Description = "une description rapide",
-                Author = "Azdine",
+                Nom = "Carroussel",
+                Description = "A Passe à B \n B Shoot \n A > B > A",
+                Author = "Jan-Erik Vaara",
                 Date = DateTime.Now,
-                TypePass = false,
+                TypePass = true,
                 TypeShoot = true,
-                TypePlayMaking = true,
-                TypeAthletic = true,
-                TypeGoalie = false,
+                TypePlayMaking = false,
+                TypeAthletic = false,
+                TypeGoalie = true,
             });
 
             context.Exos.Add(new Exo
             {
                 //ID = 1,
-                Nom = "Mon exo n°2",
-                Description = "deuze description rapide",
+                Nom = "Carroussel Inversé",
+                Description = "A Passe à B \n B Shoot \n A > B > A",
                 Author = "Azdine",
                 Date = DateTime.Now,
-                TypePass = false,
+                TypePass = true,
                 TypeShoot = true,
-                TypePlayMaking = true,
-                TypeAthletic = true,
-                TypeGoalie = false,
+                TypePlayMaking = false,
+                TypeAthletic = false,
+                TypeGoalie = true,
             });
 
             context.Exos.Add(new Exo
             {
                 //ID = 2,
-                Nom = "Mon exo n°3",
-                Description = "trouaze description rapide",
+                Nom = "Triangle et Rebonds",
+                Description = @"A Passe à B – A va en B B passe à C – B va en C",
                 Author = "Azdine",
                 Date = DateTime.Now,
-                TypePass = false,
-                TypeShoot = true,
+                TypePass = true,
+                TypeShoot = false,
                 TypePlayMaking = true,
-                TypeAthletic = true,
+                TypeAthletic = false,
                 TypeGoalie = false,
             });
 
             context.Exos.Add(new Exo
             {
                 //ID = 3,
-                Nom = "Mon exo n°4",
-                Description = "quatrez description rapide",
-                Author = "Azdine",
+                Nom = "3 tirs à la suite",
+                Description = @"A demarre sa course en 1 recoit une passe de B : Shoot",
+                Author = "Petri Kettunen",
                 Date = DateTime.Now,
                 TypePass = false,
                 TypeShoot = true,
-                TypePlayMaking = true,
+                TypePlayMaking = false,
                 TypeAthletic = true,
-                TypeGoalie = false,
+                TypeGoalie = true,
             });
 
             base.Seed(context);

@@ -23,7 +23,7 @@
     @Html.TextBoxFor(model => model.Nom)
 
     @Html.LabelFor(model => model.Description) :
-    @Html.TextBoxFor(model => model.Description)
+    @Html.TextAreaFor(model => model.Description)
 
     @Html.LabelFor(model => model.Author) :
     @Html.TextBoxFor(model => model.Author)
@@ -66,9 +66,9 @@
                     new { enctype = "multipart/form-data" }))
         {
             @Html.TextBoxFor(model => model.ID, new { style = "display: none;" })
-            <label for="file">Upload Image:</label>
-            <input type="file" name="file" id="file" style="width: 30%;" />
-            <input type="submit" value="Upload" class="submit" />
+            <label for="file">Ajouter une Photo:</label>
+            <input type="file" name="file" id="file" style="width: 10%;" />
+            <input type="submit" value="Ajouter !" class="submit" />
         }
     </div>
 

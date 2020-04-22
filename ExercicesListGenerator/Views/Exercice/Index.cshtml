@@ -47,5 +47,7 @@
         }
     </table>
     @Html.ActionLink("Ajouter un nouvel Exercice", "Creer", "Exercice", null, null)
+    <br>
+    @Html.ActionLink("Rechercher un Exercice", "Rechercher", "Exercice", new { recherche = "exo", ExoPassFilter = false }, null)
 </body>
 </html>

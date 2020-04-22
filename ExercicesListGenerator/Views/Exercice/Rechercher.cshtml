@@ -1,0 +1,73 @@
+﻿@model IEnumerable<ExercicesListGenerator.Models.Exo>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <script type="text/javascript" src="~/Scripts/Filter.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/Content/Recherche.css">
+    <title>Rechercher un exercice</title>
+    <style>
+    </style>
+</head>
+<body>
+    <h1>Rechercher un exercice</h1>
+    <div>
+        <input type="text" id="myInput" onkeyup="Filter()" placeholder="Rechercher un nom" title="entrez ici un nom">
+        <br>
+        @Html.Label("Exo de Passe")
+        <input type="checkbox" id="ExoPassFilter" onclick="Filter()" />
+        @Html.Label("Exo de Shoot")
+        <input type="checkbox" id="ExoShootFilter" onclick="Filter()" />
+        @Html.Label("Exo de Jeu")
+        <input type="checkbox" id="ExoPlayMakingFilter" onclick="Filter()" />
+        @Html.Label("Exo Physique")
+        <input type="checkbox" id="ExoAthleticFilter" onclick="Filter()" />
+        @Html.Label("Exo Gardien")
+        <input type="checkbox" id="ExoGoalieFilter" onclick="Filter()" />
+        <br>
+    </div>
+    <table id="myTable">
+        <tr class="header">
+            <th>Nom</th>
+            <th>Description</th>
+            <th>Creation</th>
+            <th>Auteur</th>
+            <th>Exo Passes</th>
+            <th>Exo Shoots</th>
+            <th>Exo Jeu</th>
+            <th>Exo Physique</th>
+            <th>Exo Gardien</th>
+            <th>Image</th>
+            <th>Modification</th>
+        </tr>
+        @foreach (var exo in Model)
+        {
+    <tr>
+        <td>@exo.Nom</td>
+        <td>@exo.Description</td>
+        <td>@exo.Date</td>
+        <td>@exo.Author</td>
+        <td>@exo.TypePass</td>
+        <td>@exo.TypeShoot</td>
+        <td>@exo.TypePlayMaking</td>
+        <td>@exo.TypeAthletic</td>
+        <td>@exo.TypeGoalie</td>
+        @if (@exo.Image == null)
+        {
+            <td>Non Present</td>
+        }
+        else
+        {
+            <td>Present</td>
+        }
+        <td>@Html.ActionLink("Modification", "Modifier", "Exercice", new { exo_id = exo.ID }, null)</td>
+    </tr>
+        }
+    </table>
+</body>
+</html>
